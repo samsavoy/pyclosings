@@ -15,7 +15,11 @@ def main():
 	printList(list)
 
 def printList(list):
-	for schools in list:
-		print(schools)
+	schools = []
+	statuses = []
+	for updates in list:
+		schools.append(updates[0])
+		statuses.append(updates[1])
+		print(schools[-1],":", statuses[-1])
 
 main()
