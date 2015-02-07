@@ -7,15 +7,21 @@ def main():
 	soup = BeautifulSoup(content)
 	schools = soup.find_all("font",class_="orgname")
 	statuses = soup.find_all("font",class_="status")
+	time = soup.find("td",class_="timestamp")
 	list = []
 	counter = 0
 	for school in schools:
 		list.append((school.string, statuses[counter].string))
 		counter = counter + 1
+	print(time.string)
 	printList(list)
 
 def printList(list):
-	for updates in list:
-		print(updates[0],":",updates[1])
+	if (len(list) > 0):
+		for updates in list:
+			print(updates[0],":",updates[1])
+
+	else:
+		print("No closings or delays found.")
 
 main()
